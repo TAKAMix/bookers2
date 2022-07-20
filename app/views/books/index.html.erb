@@ -1,2 +1,39 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      
+      
+        
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+
+  <%#= image_tag book.user.image, size: "200x200" %>
+  <p>Title</p>
+  <span><%= book.title %></span>
+  <p>Opinion</p>
+  <span><%= book.body %></span>
+  
+<% end %>
+
+  <%#= image_tag current_user.image, size: "200x200" %>
+  <p>name</p>
+  <span><%= current_user.name %></span>
+  <p>Opinion</p>
+  <span><%#= current_user.introduction %></span>
+  <%= link_to edit_user_path(current_user), class:"text-center" do%>
+    <i class="fas fa-user-cog"></i>
+<%end%>
+  
+
+<h1>New book</h1>
+<!-- form_with部分 -->
+<%= form_with model: @book do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+	
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+	
+  <%= f.submit 'Create Book' %>
+<% end %>

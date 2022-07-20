@@ -1,2 +1,45 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://kit.fontawesome.com/2f691f59a8.js" crossorigin="anonymous"></script>
+    
+    <title>Bookers2Ver2</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <main>
+    <p id="notice"></p>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+           <h2>User info</h2>
+           <form enctype="multipart/form-data" action="/users/29611" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch" autocomplete="off"><input type="hidden" name="authenticity_token" value="5uO4y4kEVvEhcpJQXCnvhbUWDf6zUzIP0pQN8kwC0B0UnQHpk8SXOXV1T_OCZYpx0-aGDWPDKi9UxFMgj-WMVg" autocomplete="off">
+      
+             <%= form_with model: current_user do |f| %>
+             <div class="form-group">
+             <label for="inputName">Name</label>
+             <%= f.text_field :name, autofocus: true, id:"inputName"%>
+             </div>
+             <div class="form-group">
+             <label for="inputImage">Image</label>
+             <%= f.file_field :profile_image, accept: "image/*" %>
+             </div>
+             <div class="form-group">
+             <label for="inputIntroduction">Introduction</label>
+             <%= f.text_field :introduction %>
+             </div>
+             <div class="form-group">
+             <%= f.submit "Update User" %>
+             <% end %>
+             </div>
+           </form>
+          </div>
+        </div>
+      </div>
+  </main>
