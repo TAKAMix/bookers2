@@ -13,7 +13,9 @@ class BooksController < ApplicationController
     @books = Book.all
     #バリデーション実装の為if
     if @book.save
+    
     redirect_to book_path(@book.id)
+    flash[:notice]='You have created book successfully.'
     else
     render :index
     end
