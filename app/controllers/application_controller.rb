@@ -13,12 +13,11 @@ class ApplicationController < ActionController::Base
   end
   
   #フラッシュメッセージ
-  if article.save
-  redirect_to user_path, notice: "表示させたいメッセージ"
-  end
+  #if article.save
+  #redirect_to user_path, notice: "表示させたいメッセージ"
+  #end
 
   protected
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end

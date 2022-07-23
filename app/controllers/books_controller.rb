@@ -10,11 +10,12 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
+    @books = Book.all
     #バリデーション実装の為if
     if @book.save
     redirect_to book_path(@book.id)
     else
-    render :new
+    render :index
     end
   end
   
@@ -31,6 +32,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @user = @book.user
+    @newbook = Book.new
   end
   
   def destroy

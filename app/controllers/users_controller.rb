@@ -18,6 +18,16 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
   
+   def create
+    @user = User.new(user_params)
+    @user = current_user.id
+    if @user.save
+      redirect_to user_path
+    else
+      render :new
+    end
+   end
+  
   private
   def user_params
     params.require(:user).permit(:profile_image, :name, :introduction)

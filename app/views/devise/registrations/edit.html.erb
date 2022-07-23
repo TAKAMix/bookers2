@@ -1,3 +1,13 @@
+
+<% if @user.errors.any? %>
+  <h3><%= @user.errors.count %>errors prohibited this obj from being saved:</h3>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
